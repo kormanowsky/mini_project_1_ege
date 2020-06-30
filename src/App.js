@@ -3,13 +3,21 @@ import Constants from "./constants";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+function Card({ content }) {
+    return <div className="block block-card">{content}</div>;
+}
+
 function HomeSubject({ subject }) {
     return (
         <div className="block block-home-subject">
-            <Link to={subject.url}>
-                <i className={subject.icon}></i>
-                <p>{subject.name}</p>
-            </Link>
+            <Card
+                content={
+                    <Link to={subject.url}>
+                        <i className={subject.icon}></i>
+                        <p>{subject.name}</p>
+                    </Link>
+                }
+            ></Card>
         </div>
     );
 }
@@ -56,9 +64,7 @@ function SubjectPage({ subject }) {
                 </div>
                 <div id="subject-header-right">Something here</div>
             </header>
-            <main id="subject-main">
-              Main Info about the subject
-            </main>
+            <main id="subject-main">Main Info about the subject</main>
         </div>
     );
 }
