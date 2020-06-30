@@ -43,9 +43,24 @@ function HomePage() {
     );
 }
 
-function SubjectPage(props) {
-    const subject = props.subject;
-    return <p>{subject.name}</p>;
+function SubjectPage({ subject }) {
+    return (
+        <div class="app app-subject">
+            <header id="subject-header">
+                <div id="subject-header-left">
+                    <p id="breadcrumbs">
+                        <Link to="/">Главная</Link>&nbsp;>&nbsp;
+                        <span>{subject.name}</span>
+                    </p>
+                    <h1>{subject.name}</h1>
+                </div>
+                <div id="subject-header-right">Something here</div>
+            </header>
+            <main id="subject-main">
+              Main Info about the subject
+            </main>
+        </div>
+    );
 }
 
 function App() {
