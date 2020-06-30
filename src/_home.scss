@@ -21,3 +21,22 @@
 .app-home a {
     color: $accent-color;
 }
+
+.block.block-home-subject p {
+    margin-bottom: 0;
+}
+
+.block.block-home-subject {
+    padding: 1rem;
+    width: fit-content;
+}
+
+.block.block-home-subject i {
+    font-size: 3rem;
+}
+
+div#home-subjects {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
