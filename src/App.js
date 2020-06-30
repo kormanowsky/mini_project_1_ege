@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Constants from "./constants";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="app app-home">
+            <div>
+                <h1>{Constants.projectInfo.name}</h1>
+                <h4>{Constants.projectInfo.description}</h4>
+                <p>Made by <a href="https://vk.com/kormanowsky/" target="_blank" rel="noopener noreferrer">Mikhail Kormanowsky</a> using IcoFont icons and Google Fonts.</p>
+            </div>
+        </div>
+    );
 }
 
 export default App;
