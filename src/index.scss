@@ -33,4 +33,9 @@ a {
     color: $primary-color;
 }
 
+.app {
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
 @import "./home";

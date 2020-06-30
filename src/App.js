@@ -1,19 +1,20 @@
 import React from "react";
 import Constants from "./constants";
 import "./App.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function HomeSubject({ subject }) {
     return (
         <div className="block block-home-subject">
-            <a href={subject.url}>
+            <Link to={subject.url}>
                 <i className={subject.icon}></i>
                 <p>{subject.name}</p>
-            </a>
+            </Link>
         </div>
     );
 }
 
-function App() {
+function HomePage() {
     return (
         <div className="app app-home">
             <div>
@@ -22,7 +23,7 @@ function App() {
 
                 <div id="home-subjects">
                     {Constants.subjects.map((subject) => (
-                        <HomeSubject subject={subject} />
+                        <HomeSubject subject={subject} key={subject.name} />
                     ))}
                 </div>
 
@@ -39,6 +40,28 @@ function App() {
                 </p>
             </div>
         </div>
+    );
+}
+
+function SubjectPage(props) {
+    const subject = props.subject;
+    return <p>{subject.name}</p>;
+}
+
+function App() {
+    return (
+        <Router>
+            <Switch>
+                <Route path="/" exact>
+                    <HomePage />
+                </Route>
+                {Constants.subjects.map((subject) => (
+                    <Route path={subject.url}>
+                        <SubjectPage subject={subject} key={subject.name} />
+                    </Route>
+                ))}
+            </Switch>
+        </Router>
     );
 }
 
