@@ -64,7 +64,9 @@ function SubjectPage({ subject }) {
                 </div>
                 <div id="subject-header-right">Something here</div>
             </header>
-            <main id="subject-main">Main Info about the subject</main>
+            <main id="subject-main">
+                <Card content="Main Info about the subject"></Card>
+            </main>
         </div>
     );
 }
