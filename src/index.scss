@@ -1,6 +1,12 @@
+// Fonts
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Oswald:wght@300;400;700&display=swap");
+// Icons
 @import "./icofont.min.css";
+// Grid
+@import "./flexboxgrid.min.css";
+// Variables
 @import "./variables";
+// Common components
 @import "./card";
 body {
     margin: 0;
@@ -39,5 +45,6 @@ a {
     box-sizing: border-box;
 }
 
+// Per-page styles
 @import "./home";
 @import "./subject";
