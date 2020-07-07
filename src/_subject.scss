@@ -20,3 +20,35 @@
     letter-spacing: 0.125rem;
     font-size: 3rem;
 }
+
+.subject-task-card.block.block-card {
+    margin-top: 1rem;
+}
+
+.subject-task-card .row {
+    align-items: center;
+}
+
+.col.subject-task-number {
+    color: $primary-color;
+    font-weight: 700;
+    padding-right: 1rem;
+    padding-left: 0.5rem;
+    font-size: 1.5rem;
+    min-width: 2rem;
+    max-width: 3rem;
+    text-align: center;
+}
+
+.col.subject-task-points {
+    margin-left: auto;
+    padding: 0 1rem;
+    color: green;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+h2.subject-rubric-title {
+    color: #c20b22;
+    font-weight: normal;
+}

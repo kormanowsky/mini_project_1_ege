@@ -3,9 +3,12 @@ import Constants from "./constants";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-function Card({ id, content }) {
+function Card({ id, content, className }) {
     return (
-        <div className="block block-card" id={id}>
+        <div
+            className={(className ? className + " " : "") + "block block-card"}
+            id={id}
+        >
             {content}
         </div>
     );
@@ -55,15 +58,31 @@ function HomePage() {
     );
 }
 
+function SubjectTask({ task, colorStyle }) {
+    return (
+        <Card
+            className="subject-task-card"
+            content={
+                <div class="container">
+                    <div class="row">
+                        <div class="col subject-task-number" style={colorStyle}>
+                            {task.number}
+                        </div>
+                        <div class="col subject-task-theme">{task.theme}</div>
+                        <div class="col subject-task-points">{task.points}</div>
+                    </div>
+                </div>
+            }
+        ></Card>
+    );
+}
+
 function SubjectPage({ subject }) {
+    const subjectColorStyle = { color: subject.color },
+        subjectBgStyle = { background: subject.color };
     return (
         <div class="app app-subject">
-            <header
-                id="subject-header"
-                style={{
-                    background: subject.color ? subject.color : null,
-                }}
-            >
+            <header id="subject-header" style={subjectBgStyle}>
                 <div class="container" id="subject-header-container">
                     <div class="row">
                         <div class="col-xs-12 col-md-6">
@@ -87,9 +106,32 @@ function SubjectPage({ subject }) {
                                 id="subject-main-info-card"
                                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis convallis convallis tellus id interdum velit laoreet id donec. Ut eu sem integer vitae justo eget magna. Ornare suspendisse sed nisi lacus sed viverra tellus in. Sit amet porttitor eget dolor morbi non arcu risus. Sollicitudin ac orci phasellus egestas. Massa massa ultricies mi quis hendrerit. At varius vel pharetra vel turpis. Elementum sagittis vitae et leo. A diam sollicitudin tempor id eu nisl nunc. Pretium nibh ipsum consequat nisl vel pretium lectus quam. In massa tempor nec feugiat nisl pretium fusce id velit. Consequat interdum varius sit amet mattis vulputate enim nulla aliquet. Condimentum id venenatis a condimentum vitae sapien pellentesque. Sed enim ut sem viverra aliquet eget sit amet tellus."
                             ></Card>
+                            {subject.tasks ? (
+                                <div class="subject-rubric">
+                                    <h2
+                                        class="subject-rubric-title"
+                                        style={subjectColorStyle}
+                                    >
+                                        Задания
+                                    </h2>
+                                    {subject.tasks.map((task) => (
+                                        <SubjectTask
+                                            task={task}
+                                            colorStyle={subjectColorStyle}
+                                        />
+                                    ))}
+                                </div>
+                            ) : (
+                                ""
+                            )}
                         </div>
                         <div class="col-xs-12 col-md-offset-1 col-md-5">
-                            <h2>Что читать</h2>
+                            <h2
+                                class="subject-rubric-title"
+                                style={subjectColorStyle}
+                            >
+                                Что читать
+                            </h2>
                         </div>
                     </div>
                 </div>
