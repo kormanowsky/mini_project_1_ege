@@ -9,12 +9,20 @@ export default {
             icon: "icofont-font",
             url: "/subject/russian/",
             color: "#35889f",
+            averagePoints: {
+                labels: [2017, 2018, 2019], 
+                values: [69.1, 70.1, 69.5],
+            },
         },
         {
             name: "Математика",
             icon: "icofont-mathematical-alt-1",
             url: "/subject/maths/",
             color: "#c20b21",
+            averagePoints: {
+                labels: [2017, 2018, 2019], 
+                values: [47.1, 49.8, 56.5],
+            },
             tasks: [
                 {
                     number: 1,
@@ -118,6 +126,10 @@ export default {
             icon: "icofont-keyboard-alt",
             url: "/subject/informatics/",
             color: "#282c34",
+            averagePoints: {
+                labels: [2017, 2018, 2019], 
+                values: [59.2, 58.4, 62.4],
+            },
         },
     ],
 };

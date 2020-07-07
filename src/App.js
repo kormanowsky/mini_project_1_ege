@@ -87,11 +87,11 @@ function SubjectPage({ subject }) {
         let chart = new Chart("subject-chart", {
             type: "line",
             data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                labels: subject.averagePoints.labels,
                 datasets: [
                     {
-                        label: "# of Votes",
-                        data: [12, 19, 31, 53, 20, 31],
+                        label: "Cредний балл по России",
+                        data: subject.averagePoints.values,
                         backgroundColor: "rgba(255, 255, 255, 0.7)",
                         color: "rgba(255, 255, 255, 0.7)",
                     },
