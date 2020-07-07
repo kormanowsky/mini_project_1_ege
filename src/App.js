@@ -141,7 +141,7 @@ function SubjectPage({ subject }) {
                     <div class="row">
                         <div class="col-xs-12 col-md-6">
                             <p id="breadcrumbs">
-                                <Link to="/">Главная</Link>&nbsp;>&nbsp;
+                                <Link to="/">Главная</Link>&nbsp;<i class="icofont-long-arrow-right"></i>&nbsp;
                                 <span>{subject.name}</span>
                             </p>
                             <h1 id="subject-name">{subject.name}</h1>
