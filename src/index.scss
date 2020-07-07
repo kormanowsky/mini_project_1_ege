@@ -13,8 +13,8 @@ body {
     font-family: "Open Sans", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: $primary-color;
-    color: white;
+    background: #f0f0f0;
+    color: #212121;
 }
 
 code {
@@ -40,9 +40,8 @@ a {
     color: $primary-color;
 }
 
-.app {
-    padding: 2rem;
-    box-sizing: border-box;
+.container {
+    max-width: 100%;
 }
 
 // Per-page styles

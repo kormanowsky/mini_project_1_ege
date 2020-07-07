@@ -58,18 +58,23 @@ function HomePage() {
 function SubjectPage({ subject }) {
     return (
         <div class="app app-subject">
-            <header id="subject-header">
-                <div class="container" id="subject-header-conteiner">
+            <header
+                id="subject-header"
+                style={{
+                    background: subject.color ? subject.color : null,
+                }}
+            >
+                <div class="container" id="subject-header-container">
                     <div class="row">
                         <div class="col-xs-12 col-md-6">
                             <p id="breadcrumbs">
                                 <Link to="/">Главная</Link>&nbsp;>&nbsp;
                                 <span>{subject.name}</span>
                             </p>
-                            <h1>{subject.name}</h1>
+                            <h1 id="subject-name">{subject.name}</h1>
                         </div>
-                        <div class="col-xs-12 col-md-6">
-                            <div id="subject-header-right">Something here</div>
+                        <div class="col-xs-12 col-md-5 col-md-offset-1">
+                            <div id="subject-header-right">График</div>
                         </div>
                     </div>
                 </div>
@@ -83,8 +88,8 @@ function SubjectPage({ subject }) {
                                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis convallis convallis tellus id interdum velit laoreet id donec. Ut eu sem integer vitae justo eget magna. Ornare suspendisse sed nisi lacus sed viverra tellus in. Sit amet porttitor eget dolor morbi non arcu risus. Sollicitudin ac orci phasellus egestas. Massa massa ultricies mi quis hendrerit. At varius vel pharetra vel turpis. Elementum sagittis vitae et leo. A diam sollicitudin tempor id eu nisl nunc. Pretium nibh ipsum consequat nisl vel pretium lectus quam. In massa tempor nec feugiat nisl pretium fusce id velit. Consequat interdum varius sit amet mattis vulputate enim nulla aliquet. Condimentum id venenatis a condimentum vitae sapien pellentesque. Sed enim ut sem viverra aliquet eget sit amet tellus."
                             ></Card>
                         </div>
-                        <div class="col-xs-12 col-md-6">
-                            <Card content="Main Info about the subject"></Card>
+                        <div class="col-xs-12 col-md-offset-1 col-md-5">
+                            <h2>Что читать</h2>
                         </div>
                     </div>
                 </div>

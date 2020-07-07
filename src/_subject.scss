@@ -2,13 +2,21 @@
     color: $accent-color;
 }
 
-#subject-main {
-    margin: 2rem -2rem;
+#subject-header {
+    background: $primary-color;
     padding: 2rem;
-    background: #f0f0f0;
-    color: #212121;
+    color: white;
+}
+
+#subject-main {
+    padding: 2rem;
 }
 
 #subject-main-info-card {
     margin-top: -4rem;
+}
+
+#subject-name {
+    letter-spacing: 0.125rem;
+    font-size: 3rem;
 }
