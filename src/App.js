@@ -1,7 +1,9 @@
 import React from "react";
+import { useEffect } from "react";
 import Constants from "./constants";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Chart from "chart.js";
 
 function Card({ id, content, className }) {
     return (
@@ -80,6 +82,58 @@ function SubjectTask({ task, colorStyle }) {
 function SubjectPage({ subject }) {
     const subjectColorStyle = { color: subject.color },
         subjectBgStyle = { background: subject.color };
+
+    useEffect(() => {
+        let chart = new Chart("subject-chart", {
+            type: "line",
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [
+                    {
+                        label: "# of Votes",
+                        data: [12, 19, 31, 53, 20, 31],
+                        backgroundColor: "rgba(255, 255, 255, 0.7)",
+                        color: "rgba(255, 255, 255, 0.7)",
+                    },
+                ],
+            },
+            options: {
+                layout: {
+                    padding: 0,
+                },
+                legend: {
+                    display: false,
+                },
+                scales: {
+                    xAxes: [
+                        {
+                            gridLines: {
+                                display: false,
+                            },
+                            ticks: {
+                                display: false,
+                            },
+                        },
+                    ],
+                    yAxes: [
+                        {
+                            gridLines: {
+                                display: false,
+                            },
+                            ticks: {
+                                display: false,
+                            },
+                        },
+                    ],
+                },
+                elements: {
+                    point: {
+                        radius: 8,
+                    },
+                },
+            },
+        });
+    });
     return (
         <div class="app app-subject">
             <header id="subject-header" style={subjectBgStyle}>
@@ -93,7 +147,7 @@ function SubjectPage({ subject }) {
                             <h1 id="subject-name">{subject.name}</h1>
                         </div>
                         <div class="col-xs-12 col-md-5 col-md-offset-1">
-                            <div id="subject-header-right">График</div>
+                            <canvas id="subject-chart"></canvas>
                         </div>
                     </div>
                 </div>
