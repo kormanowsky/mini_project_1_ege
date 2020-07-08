@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect} from "react";
+import { useEffect } from "react";
 import Constants from "./constants";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -90,17 +90,23 @@ function SubjectTask({ task, colorStyle }) {
 
 function SubjectBook({ book }) {
     return (
-        <div class="subject-book col-xs-12 col-md-6 col-lg-3">
-            <Card
-                className="subject-book-image"
-                shadow="nm"
-                content={<img src={book.image} alt={book.title}></img>}
-            />
-            <p class="subject-book-title">{book.title}</p>
-            <p class="subject-book-author">{book.author}</p>
-            <a class="subject-book-buy-link" href={book.url}>
-                {book.price} <i class="icofont-rouble"></i>
-            </a>
+        <div class="subject-book col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-6">
+                    <Card
+                        className="subject-book-image"
+                        shadow="nm"
+                        content={<img src={book.image} alt={book.title}></img>}
+                    />
+                </div>
+                <div class="col-xs-6">
+                    <p class="subject-book-title">{book.title}</p>
+                    <p class="subject-book-author">{book.author}</p>
+                    <a class="subject-book-buy-link" href={book.url} target="_blank" rel="noopener noreferrer">
+                        {book.price} <i class="icofont-rouble"></i><i class="icofont-long-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     );
 }
@@ -109,8 +115,7 @@ function SubjectPage({ subject }) {
     const subjectColorStyle = { color: subject.color },
         subjectBgStyle = { background: subject.color };
 
-    useEffect(() => {
-        let chart = new Chart("subject-chart", {
+    useEffect(() => new Chart("subject-chart", {
             type: "line",
             data: {
                 labels: subject.averagePoints.labels,
@@ -158,14 +163,13 @@ function SubjectPage({ subject }) {
                     },
                 },
             },
-        });
-    });
+    }));
     return (
         <div class="app app-subject">
             <header id="subject-header" style={subjectBgStyle}>
                 <div class="container" id="subject-header-container">
                     <div class="row">
-                        <div class="col-xs-12 col-md-6">
+                        <div class="col-xs-12 col-md-5">
                             <p id="breadcrumbs">
                                 <Link to="/">Главная</Link>&nbsp;
                                 <i class="icofont-long-arrow-right"></i>&nbsp;
@@ -173,7 +177,7 @@ function SubjectPage({ subject }) {
                             </p>
                             <h1 id="subject-name">{subject.name}</h1>
                         </div>
-                        <div class="col-xs-12 col-md-5 col-md-offset-1">
+                        <div class="col-xs-12 col-md-6 col-md-offset-1">
                             <canvas id="subject-chart"></canvas>
                         </div>
                     </div>
@@ -182,7 +186,7 @@ function SubjectPage({ subject }) {
             <main id="subject-main">
                 <div class="container" id="subject-main-container">
                     <div class="row">
-                        <div class="col-xs-12 col-md-6">
+                        <div class="col-xs-12 col-md-5">
                             <Card
                                 id="subject-main-info-card"
                                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis convallis convallis tellus id interdum velit laoreet id donec. Ut eu sem integer vitae justo eget magna. Ornare suspendisse sed nisi lacus sed viverra tellus in. Sit amet porttitor eget dolor morbi non arcu risus. Sollicitudin ac orci phasellus egestas. Massa massa ultricies mi quis hendrerit. At varius vel pharetra vel turpis. Elementum sagittis vitae et leo. A diam sollicitudin tempor id eu nisl nunc. Pretium nibh ipsum consequat nisl vel pretium lectus quam. In massa tempor nec feugiat nisl pretium fusce id velit. Consequat interdum varius sit amet mattis vulputate enim nulla aliquet. Condimentum id venenatis a condimentum vitae sapien pellentesque. Sed enim ut sem viverra aliquet eget sit amet tellus."
@@ -207,7 +211,7 @@ function SubjectPage({ subject }) {
                                 ""
                             )}
                         </div>
-                        <div class="col-xs-12 col-md-offset-1 col-md-5">
+                        <div class="col-xs-12 col-md-offset-1 col-md-6" id="subject-books">
                             <h2
                                 class="subject-rubric-title"
                                 style={subjectColorStyle}
@@ -216,7 +220,7 @@ function SubjectPage({ subject }) {
                             </h2>
                             <div class="row">
                                 {subject.books
-                                    ? subject.books.map((book) => (
+                                    ? subject.books.sort(() => Math.random() < 0.5 ? -1 : 1).map((book) => (
                                           <SubjectBook book={book} />
                                       ))
                                     : ""}
