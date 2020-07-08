@@ -192,6 +192,27 @@ export default {
                     author: "И. В. Ященко и др.",
                 },
             ],
+            channels: [
+                {
+                    url: "https://www.youtube.com/user/trushinbv",
+                    title: "Борис Трушин",
+                    image:
+                        "https://yt3.ggpht.com/a/AATXAJxpvFIEaU4qhp6yyzmQhHJktJQEwL6F1s014uvGOQ=s100-c-k-c0xffffffff-no-rj-mo",
+                },
+                {
+                    url:
+                        "https://www.youtube.com/channel/UCj0Od_id0gPbmwZ65U8xwrw",
+                    title: "Wild Mathing",
+                    image:
+                        "https://yt3.ggpht.com/a/AATXAJyJ5S-5O_J-dFBOAfWADaDEWT2BiWCaEdgNn3nhiQ=s100-c-k-c0xffffffff-no-rj-mo",
+                },
+                {
+                    url: "https://www.youtube.com/user/MalkovaAnna",
+                    title: "Анна Малкова",
+                    image:
+                        "https://yt3.ggpht.com/a/AATXAJy7lvywBco26NJ5F-MQnHTghcanSRT-RjOa18wC=s100-c-k-c0xffffffff-no-rj-mo",
+                },
+            ],
         },
         {
             name: "Информатика и ИКТ",
@@ -200,7 +221,6 @@ export default {
             color: "#282c34",
             averagePoints: {
                 labels: [2017, 2018, 2019],
-                values: [59.2, 58.4, 62.4],
             },
         },
     ],

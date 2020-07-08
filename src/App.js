@@ -175,6 +175,27 @@ function SubjectChart({ chartData, title }) {
     );
 }
 
+function SubjectChannel({ channel }) {
+    return (
+        <div class="subject-channel col-12 col-md-6 col-lg-4">
+            <a href={channel.url} target="_blank" rel="noopener noreferrer">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <img
+                            src={channel.image}
+                            class="subject-channel-image has-lg-shadow"
+                            alt={channel.title}
+                        />
+                    </div>
+                    <div class="col-xs-8">
+                        <p class="subject-channel-title">{channel.title}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    );
+}
+
 function SubjectPage({ subject }) {
     const subjectColorStyle = { color: subject.color },
         subjectBgStyle = { background: subject.color };
@@ -229,26 +250,46 @@ function SubjectPage({ subject }) {
                                 ""
                             )}
                         </div>
-                        <div
-                            class="col-xs-12 col-md-offset-1 col-md-6"
-                            id="subject-books"
-                        >
-                            <h2
-                                class="subject-rubric-title"
-                                style={subjectColorStyle}
-                            >
-                                Что читать
-                            </h2>
-                            <div class="row">
-                                {subject.books
-                                    ? subject.books
-                                          .sort(() =>
-                                              Math.random() < 0.5 ? -1 : 1
-                                          )
-                                          .map((book) => (
-                                              <SubjectBook book={book} />
-                                          ))
-                                    : ""}
+                        <div class="col-xs-12 col-md-offset-1 col-md-6">
+                            <div id="subject-books">
+                                <h2
+                                    class="subject-rubric-title"
+                                    style={subjectColorStyle}
+                                >
+                                    Что читать
+                                </h2>
+                                <div class="row">
+                                    {subject.books
+                                        ? subject.books
+                                              .sort(() =>
+                                                  Math.random() < 0.5 ? -1 : 1
+                                              )
+                                              .map((book) => (
+                                                  <SubjectBook book={book} />
+                                              ))
+                                        : ""}
+                                </div>
+                            </div>
+                            <div id="subject-channels">
+                                <h2
+                                    class="subject-rubric-title"
+                                    style={subjectColorStyle}
+                                >
+                                    Что смотреть
+                                </h2>
+                                <div class="row">
+                                    {subject.channels
+                                        ? subject.channels
+                                              .sort(() =>
+                                                  Math.random() < 0.5 ? -1 : 1
+                                              )
+                                              .map((channel) => (
+                                                  <SubjectChannel
+                                                      channel={channel}
+                                                  />
+                                              ))
+                                        : ""}
+                                </div>
                             </div>
                         </div>
                     </div>
