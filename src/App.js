@@ -5,12 +5,20 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Chart from "chart.js";
 
-function Card({ id, content, className }) {
+function Card({ id, content, className, shadow }) {
+    if (!className) {
+        className = "";
+    } else {
+        className += " ";
+    }
+    className += "block block-card";
+    if (shadow === "nm") {
+        className += " has-shadow";
+    } else if (shadow === "lg") {
+        className += " has-lg-shadow";
+    }
     return (
-        <div
-            className={(className ? className + " " : "") + "block block-card"}
-            id={id}
-        >
+        <div className={className} id={id}>
             {content}
         </div>
     );
@@ -75,6 +83,7 @@ function SubjectTask({ task, colorStyle }) {
                     </div>
                 </div>
             }
+            shadow="nm"
         ></Card>
     );
 }
@@ -141,7 +150,8 @@ function SubjectPage({ subject }) {
                     <div class="row">
                         <div class="col-xs-12 col-md-6">
                             <p id="breadcrumbs">
-                                <Link to="/">Главная</Link>&nbsp;<i class="icofont-long-arrow-right"></i>&nbsp;
+                                <Link to="/">Главная</Link>&nbsp;
+                                <i class="icofont-long-arrow-right"></i>&nbsp;
                                 <span>{subject.name}</span>
                             </p>
                             <h1 id="subject-name">{subject.name}</h1>
@@ -159,6 +169,7 @@ function SubjectPage({ subject }) {
                             <Card
                                 id="subject-main-info-card"
                                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis convallis convallis tellus id interdum velit laoreet id donec. Ut eu sem integer vitae justo eget magna. Ornare suspendisse sed nisi lacus sed viverra tellus in. Sit amet porttitor eget dolor morbi non arcu risus. Sollicitudin ac orci phasellus egestas. Massa massa ultricies mi quis hendrerit. At varius vel pharetra vel turpis. Elementum sagittis vitae et leo. A diam sollicitudin tempor id eu nisl nunc. Pretium nibh ipsum consequat nisl vel pretium lectus quam. In massa tempor nec feugiat nisl pretium fusce id velit. Consequat interdum varius sit amet mattis vulputate enim nulla aliquet. Condimentum id venenatis a condimentum vitae sapien pellentesque. Sed enim ut sem viverra aliquet eget sit amet tellus."
+                                shadow="lg"
                             ></Card>
                             {subject.tasks ? (
                                 <div class="subject-rubric">
