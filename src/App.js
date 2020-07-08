@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import Constants from "./constants";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Chart from "chart.js";
 
 function Card({ id, content, className, shadow }) {
     if (!className) {
@@ -117,7 +116,7 @@ function SubjectBook({ book }) {
     );
 }
 
-function SubjectChart({ chartData, fill }) {
+function SubjectChart({ chartData, fill, title }) {
     const id = "subject-chart";
     useEffect(() => {
         let chartSvg = document.getElementById(id),
@@ -125,7 +124,7 @@ function SubjectChart({ chartData, fill }) {
             { labels, values } = chartData,
             width = chartOuter.offsetWidth,
             height = 200,
-            safeZonePercent = 20,
+            safeZonePercent = 30,
             minValue = Math.min(...values),
             maxValue = Math.max(...values);
 
@@ -171,6 +170,7 @@ function SubjectChart({ chartData, fill }) {
             <svg id={id}>
                 <path fill={fill}></path>
             </svg>
+            {title ? <h3 class="subject-chart-title">{title}</h3> : null}
         </div>
     );
 }
@@ -193,10 +193,10 @@ function SubjectPage({ subject }) {
                             <h1 id="subject-name">{subject.name}</h1>
                         </div>
                         <div class="col-xs-12 col-md-6 col-md-offset-1">
-                            <h3>Средний балл прошлых лет</h3>
                             <SubjectChart
                                 chartData={subject.averagePoints}
                                 fill={subject.colorDark}
+                                title="Средний балл"
                             ></SubjectChart>
                         </div>
                     </div>
