@@ -10,7 +10,7 @@ export default {
             url: "/subject/russian/",
             color: "#35889f",
             averagePoints: {
-                labels: [2017, 2018, 2019], 
+                labels: [2017, 2018, 2019],
                 values: [69.1, 70.1, 69.5],
             },
         },
@@ -20,7 +20,7 @@ export default {
             url: "/subject/maths/",
             color: "#c20b21",
             averagePoints: {
-                labels: [2017, 2018, 2019], 
+                labels: [2017, 2018, 2019],
                 values: [47.1, 49.8, 56.5],
             },
             tasks: [
@@ -120,6 +120,27 @@ export default {
                     points: 4,
                 },
             ],
+            books: [
+                {
+                    url: "https://www.labirint.ru/books/710615/?p=30217",
+                    title:
+                        "ЕГЭ-2020 Математика. Геометрия. Планиметрия. Задача 16 (профильный уровень)",
+                    author: "Гордин",
+                    price: 300,
+                    image:
+                        "https://img3.labirint.ru/rc/caee3e22cfe25d08983437f59dd45f91/220x340/books72/710615/cover.jpg?1567609834",
+                },
+                {
+                    url: "https://www.labirint.ru/books/715639/?p=30217",
+                    image:
+                        "https://img3.labirint.ru/rc/2733735be349988e83761da75e5fe65f/220x340/books72/715639/cover.jpg?1569435956",
+                    author:
+                        "Авилов, Домашенко, Дерезин и др.",
+                    price: 300,
+                    title:
+                        "ЕГЭ-2020 Математика. 40 тренировочных вариантов. Профильный уровень",
+                },
+            ],
         },
         {
             name: "Информатика и ИКТ",
@@ -127,7 +148,7 @@ export default {
             url: "/subject/informatics/",
             color: "#282c34",
             averagePoints: {
-                labels: [2017, 2018, 2019], 
+                labels: [2017, 2018, 2019],
                 values: [59.2, 58.4, 62.4],
             },
         },

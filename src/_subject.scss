@@ -53,3 +53,28 @@ h2.subject-rubric-title {
     color: #c20b22;
     font-weight: normal;
 }
+
+.subject-book-image {
+    padding: 0;
+    overflow: hidden;
+}
+
+.subject-book-image img {
+    width: 100%;
+    display: block;
+}
+
+p.subject-book-title {
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0;
+}
+
+.subject-book {
+    font-size: 0.9rem;
+}
+
+p.subject-book-author {
+    font-size: 0.8rem;
+    margin: 0.5em 0;
+}

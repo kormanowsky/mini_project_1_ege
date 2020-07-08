@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect} from "react";
 import Constants from "./constants";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -85,6 +85,23 @@ function SubjectTask({ task, colorStyle }) {
             }
             shadow="nm"
         ></Card>
+    );
+}
+
+function SubjectBook({ book }) {
+    return (
+        <div class="subject-book col-xs-12 col-md-6 col-lg-3">
+            <Card
+                className="subject-book-image"
+                shadow="nm"
+                content={<img src={book.image} alt={book.title}></img>}
+            />
+            <p class="subject-book-title">{book.title}</p>
+            <p class="subject-book-author">{book.author}</p>
+            <a class="subject-book-buy-link" href={book.url}>
+                {book.price} <i class="icofont-rouble"></i>
+            </a>
+        </div>
     );
 }
 
@@ -197,6 +214,13 @@ function SubjectPage({ subject }) {
                             >
                                 Что читать
                             </h2>
+                            <div class="row">
+                                {subject.books
+                                    ? subject.books.map((book) => (
+                                          <SubjectBook book={book} />
+                                      ))
+                                    : ""}
+                            </div>
                         </div>
                     </div>
                 </div>
