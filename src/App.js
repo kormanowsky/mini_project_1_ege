@@ -102,8 +102,14 @@ function SubjectBook({ book }) {
                 <div class="col-xs-6">
                     <p class="subject-book-title">{book.title}</p>
                     <p class="subject-book-author">{book.author}</p>
-                    <a class="subject-book-buy-link" href={book.url} target="_blank" rel="noopener noreferrer">
-                        {book.price} <i class="icofont-rouble"></i><i class="icofont-long-arrow-right"></i>
+                    <a
+                        class="subject-book-buy-link"
+                        href={book.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {book.price} <i class="icofont-rouble"></i>
+                        <i class="icofont-long-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -111,74 +117,87 @@ function SubjectBook({ book }) {
     );
 }
 
+function SubjectChart({ chartData, fill }) {
+    const id = "subject-chart";
+    useEffect(() => {
+        let chartSvg = document.getElementById(id),
+            chartOuter = chartSvg.parentElement,
+            { labels, values } = chartData,
+            width = chartOuter.offsetWidth,
+            height = 200,
+            safeZonePercent = 20,
+            minValue = Math.min(...values),
+            maxValue = Math.max(...values);
+
+        function valueToYCoord(value) {
+            return (
+                (((height * (100 - safeZonePercent)) / 100) *
+                    (maxValue - value)) /
+                (maxValue - minValue)
+            );
+        }
+
+        function indexToXCoord(index) {
+            return (index / (values.length - 1)) * width;
+        }
+
+        let d = `M ${indexToXCoord(0)} ${valueToYCoord(
+            values[0]
+        )} L 0 ${height} L ${width} ${height}`;
+
+        for (let index = values.length - 1; index >= 0; --index) {
+            let value = values[index],
+                valuePoint = document.createElement("div"),
+                valueLabel = document.createElement("div");
+            d += ` L ${indexToXCoord(index)} ${valueToYCoord(value)}`;
+            valuePoint.className = "subject-chart-point has-lg-shadow";
+            valuePoint.style.top = valueToYCoord(value) + "px";
+            valuePoint.style.left = indexToXCoord(index) + "px";
+            valueLabel.className = "subject-chart-label";
+            valueLabel.innerHTML = `${labels[index]}<br/><small>${value}</small>`;
+            valueLabel.style.top = valueToYCoord(value) + "px";
+            valueLabel.style.left = indexToXCoord(index) + "px";
+            chartOuter.appendChild(valuePoint);
+            chartOuter.appendChild(valueLabel);
+        }
+
+        chartSvg.setAttribute("width", width);
+        chartSvg.setAttribute("height", height);
+        chartSvg.querySelector("path").setAttribute("d", d);
+    });
+
+    return (
+        <div id="subject-chart-outer">
+            <svg id={id}>
+                <path fill={fill}></path>
+            </svg>
+        </div>
+    );
+}
+
 function SubjectPage({ subject }) {
     const subjectColorStyle = { color: subject.color },
         subjectBgStyle = { background: subject.color };
-
-    useEffect(() => new Chart("subject-chart", {
-            type: "line",
-            data: {
-                labels: subject.averagePoints.labels,
-                datasets: [
-                    {
-                        label: "Cредний балл по России",
-                        data: subject.averagePoints.values,
-                        backgroundColor: "rgba(255, 255, 255, 0.7)",
-                        color: "rgba(255, 255, 255, 0.7)",
-                    },
-                ],
-            },
-            options: {
-                layout: {
-                    padding: 0,
-                },
-                legend: {
-                    display: false,
-                },
-                scales: {
-                    xAxes: [
-                        {
-                            gridLines: {
-                                display: false,
-                            },
-                            ticks: {
-                                display: false,
-                            },
-                        },
-                    ],
-                    yAxes: [
-                        {
-                            gridLines: {
-                                display: false,
-                            },
-                            ticks: {
-                                display: false,
-                            },
-                        },
-                    ],
-                },
-                elements: {
-                    point: {
-                        radius: 8,
-                    },
-                },
-            },
-    }));
     return (
         <div class="app app-subject">
             <header id="subject-header" style={subjectBgStyle}>
                 <div class="container" id="subject-header-container">
+                    <h1 id="project-name">{Constants.projectInfo.name}</h1>
+                    <p id="breadcrumbs">
+                        <Link to="/">Главная</Link>&nbsp;
+                        <i class="icofont-long-arrow-right"></i>&nbsp;
+                        <span>{subject.name}</span>
+                    </p>
                     <div class="row">
                         <div class="col-xs-12 col-md-5">
-                            <p id="breadcrumbs">
-                                <Link to="/">Главная</Link>&nbsp;
-                                <i class="icofont-long-arrow-right"></i>&nbsp;
-                                <span>{subject.name}</span>
-                            </p>
                             <h1 id="subject-name">{subject.name}</h1>
                         </div>
                         <div class="col-xs-12 col-md-6 col-md-offset-1">
-                            <canvas id="subject-chart"></canvas>
+                            <h3>Средний балл прошлых лет</h3>
+                            <SubjectChart
+                                chartData={subject.averagePoints}
+                                fill={subject.colorDark}
+                            ></SubjectChart>
                         </div>
                     </div>
                 </div>
@@ -211,7 +230,10 @@ function SubjectPage({ subject }) {
                                 ""
                             )}
                         </div>
-                        <div class="col-xs-12 col-md-offset-1 col-md-6" id="subject-books">
+                        <div
+                            class="col-xs-12 col-md-offset-1 col-md-6"
+                            id="subject-books"
+                        >
                             <h2
                                 class="subject-rubric-title"
                                 style={subjectColorStyle}
@@ -220,9 +242,13 @@ function SubjectPage({ subject }) {
                             </h2>
                             <div class="row">
                                 {subject.books
-                                    ? subject.books.sort(() => Math.random() < 0.5 ? -1 : 1).map((book) => (
-                                          <SubjectBook book={book} />
-                                      ))
+                                    ? subject.books
+                                          .sort(() =>
+                                              Math.random() < 0.5 ? -1 : 1
+                                          )
+                                          .map((book) => (
+                                              <SubjectBook book={book} />
+                                          ))
                                     : ""}
                             </div>
                         </div>
