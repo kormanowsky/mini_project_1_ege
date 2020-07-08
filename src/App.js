@@ -68,22 +68,41 @@ function HomePage() {
 }
 
 function SubjectTask({ task, colorStyle }) {
+    function getPointsLabel(pointsCount) {
+        if (11 <= pointsCount % 100 && pointsCount % 100 <= 14) {
+            return `${pointsCount} баллов`;
+        } else if (pointsCount % 10 === 1) {
+            return `${pointsCount} балл`;
+        } else if (2 <= pointsCount % 10 && pointsCount % 10 <= 4) {
+            return `${pointsCount} балла`;
+        } else {
+            return `${pointsCount} баллов`;
+        }
+    }
     return (
-        <Card
-            className="subject-task-card"
-            content={
-                <div class="container">
-                    <div class="row">
-                        <div class="col subject-task-number" style={colorStyle}>
-                            {task.number}
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <Card
+                className="subject-task-card"
+                content={
+                    <div class="container">
+                        <div class="row">
+                            <div
+                                class="col subject-task-number"
+                                style={colorStyle}
+                            >
+                                {task.number}
+                            </div>
+
+                            <div class="col subject-task-points">
+                                {getPointsLabel(task.points)}
+                            </div>
                         </div>
                         <div class="col subject-task-theme">{task.theme}</div>
-                        <div class="col subject-task-points">{task.points}</div>
                     </div>
-                </div>
-            }
-            shadow="nm"
-        ></Card>
+                }
+                shadow="nm"
+            ></Card>
+        </div>
     );
 }
 
@@ -175,10 +194,15 @@ function SubjectChart({ chartData, title }) {
     );
 }
 
-function SubjectChannel({ channel }) {
+function SubjectChannel({ channel, colorStyle }) {
     return (
         <div class="subject-channel col-12 col-md-6 col-lg-4">
-            <a href={channel.url} target="_blank" rel="noopener noreferrer">
+            <a
+                href={channel.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={colorStyle}
+            >
                 <div class="row">
                     <div class="col-xs-4">
                         <img
@@ -191,6 +215,35 @@ function SubjectChannel({ channel }) {
                         <p class="subject-channel-title">{channel.title}</p>
                     </div>
                 </div>
+            </a>
+        </div>
+    );
+}
+
+function SubjectWebsite({ website, colorStyle }) {
+    return (
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <a
+                href={website.url}
+                target="_blank"
+                rel="noreferrer noopener"
+                style={colorStyle}
+            >
+                <Card
+                    content={
+                        <img
+                            class="subject-website-image"
+                            src={website.image}
+                            alt={website.title}
+                        />
+                    }
+                    className="subject-website-image-card"
+                    shadow="nm"
+                ></Card>
+                <p class="subject-website-title">{website.title}</p>
+                <p class="subject-website-url">
+                    {website.url.split("://")[1].split("/")[0]}
+                </p>
             </a>
         </div>
     );
@@ -231,20 +284,23 @@ function SubjectPage({ subject }) {
                                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis convallis convallis tellus id interdum velit laoreet id donec. Ut eu sem integer vitae justo eget magna. Ornare suspendisse sed nisi lacus sed viverra tellus in. Sit amet porttitor eget dolor morbi non arcu risus. Sollicitudin ac orci phasellus egestas. Massa massa ultricies mi quis hendrerit. At varius vel pharetra vel turpis. Elementum sagittis vitae et leo. A diam sollicitudin tempor id eu nisl nunc. Pretium nibh ipsum consequat nisl vel pretium lectus quam. In massa tempor nec feugiat nisl pretium fusce id velit. Consequat interdum varius sit amet mattis vulputate enim nulla aliquet. Condimentum id venenatis a condimentum vitae sapien pellentesque. Sed enim ut sem viverra aliquet eget sit amet tellus."
                                 shadow="lg"
                             ></Card>
+
                             {subject.tasks ? (
-                                <div class="subject-rubric">
+                                <div class="subject-rubric" id="subject-tasks">
                                     <h2
                                         class="subject-rubric-title"
                                         style={subjectColorStyle}
                                     >
                                         Задания
                                     </h2>
-                                    {subject.tasks.map((task) => (
-                                        <SubjectTask
-                                            task={task}
-                                            colorStyle={subjectColorStyle}
-                                        />
-                                    ))}
+                                    <div class="row">
+                                        {subject.tasks.map((task) => (
+                                            <SubjectTask
+                                                task={task}
+                                                colorStyle={subjectColorStyle}
+                                            />
+                                        ))}
+                                    </div>
                                 </div>
                             ) : (
                                 ""
@@ -286,6 +342,33 @@ function SubjectPage({ subject }) {
                                               .map((channel) => (
                                                   <SubjectChannel
                                                       channel={channel}
+                                                      colorStyle={
+                                                          subjectColorStyle
+                                                      }
+                                                  />
+                                              ))
+                                        : ""}
+                                </div>
+                            </div>
+                            <div id="subject-channels">
+                                <h2
+                                    class="subject-rubric-title"
+                                    style={subjectColorStyle}
+                                >
+                                    Что решать
+                                </h2>
+                                <div class="row">
+                                    {subject.websites
+                                        ? subject.websites
+                                              .sort(() =>
+                                                  Math.random() < 0.5 ? -1 : 1
+                                              )
+                                              .map((website) => (
+                                                  <SubjectWebsite
+                                                      website={website}
+                                                      colorStyle={
+                                                          subjectColorStyle
+                                                      }
                                                   />
                                               ))
                                         : ""}
@@ -295,6 +378,19 @@ function SubjectPage({ subject }) {
                     </div>
                 </div>
             </main>
+            <footer>
+                <div class="container">
+                    Автор сайта -{" "}
+                    <a
+                        href="https://vk.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Михаил Кормановский
+                    </a>
+                    .{" "}
+                </div>
+            </footer>
         </div>
     );
 }

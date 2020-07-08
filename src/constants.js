@@ -213,6 +213,23 @@ export default {
                         "https://yt3.ggpht.com/a/AATXAJy7lvywBco26NJ5F-MQnHTghcanSRT-RjOa18wC=s100-c-k-c0xffffffff-no-rj-mo",
                 },
             ],
+            websites: [
+                {
+                    url: "https://ege.sdamgia.ru",
+                    title: "Решу ЕГЭ: математика",
+                    image: "https://ege.sdamgia.ru/img/headers/logo.svg",
+                },
+                {
+                    url: "http://os.fipi.ru/tasks/2/a",
+                    title: "Открытый банк заданий ФИПИ",
+                    image: "http://os.fipi.ru/content/images/icon.png",
+                },
+                {
+                    url: "https://yandex.ru/tutor/subject/?subject_id=2",
+                    title: "Яндекс.Репетитор",
+                    image: "https://yastatic.net/s3/frontend/yandex-lego/serp-header/_/3JnAXF2i.svg",
+                },
+            ],
         },
         {
             name: "Информатика и ИКТ",
@@ -221,6 +238,7 @@ export default {
             color: "#282c34",
             averagePoints: {
                 labels: [2017, 2018, 2019],
+                values: [59.2, 58.4, 62.4],
             },
         },
     ],

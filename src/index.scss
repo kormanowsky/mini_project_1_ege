@@ -44,9 +44,25 @@ a {
     max-width: 100%;
 }
 
+.row{
+    align-items: center;
+}
+
 h1#project-name {
     margin: 0;
     font-size: 1.75rem;
+}
+
+footer{
+    background: #343434;
+    text-align: center;
+    padding: 2rem;
+    color: white;
+    margin-top: 3rem;
+}
+
+footer a{
+    color: $accent-color;
 }
 
 // Per-page styles

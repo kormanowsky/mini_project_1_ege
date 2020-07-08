@@ -23,30 +23,32 @@
 }
 
 .subject-task-card.block.block-card {
-    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: calc(100% - 3rem);
 }
 
 .subject-task-card .row {
     align-items: center;
 }
 
-.col.subject-task-number {
-    color: $primary-color;
+.subject-task-number {
     font-weight: 700;
-    padding-right: 1rem;
-    padding-left: 0.5rem;
     font-size: 1.5rem;
-    min-width: 2rem;
-    max-width: 3rem;
-    text-align: center;
+    padding-left: 0.5rem;
 }
 
-.col.subject-task-points {
+.subject-task-points {
     margin-left: auto;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
     color: green;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+.subject-task-theme{
+   font-size: 0.9rem;
+   margin-top: 0.5rem;
 }
 
 h2.subject-rubric-title {
@@ -124,4 +126,30 @@ svg#subject-chart {
 img.subject-channel-image {
     width: 100%;
     border-radius: 50%;
+}
+
+img.subject-website-image {
+    max-height: 50px;
+    display: block;
+}
+
+.subject-website-image-card.block.block-card {
+    padding: 0.5rem;
+    width: fit-content;
+    display: block;
+}
+
+p.subject-website-title {
+    word-break: break-word;
+    margin-bottom: 0;
+}
+
+p.subject-website-url {
+    margin: 0;
+    color: #212121;
+    font-size: 0.8rem;
+}
+
+#subject-tasks .row{
+    align-items: unset;
 }
