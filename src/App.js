@@ -116,7 +116,7 @@ function SubjectBook({ book }) {
     );
 }
 
-function SubjectChart({ chartData, fill, title }) {
+function SubjectChart({ chartData, title }) {
     const id = "subject-chart";
     useEffect(() => {
         let chartSvg = document.getElementById(id),
@@ -153,7 +153,7 @@ function SubjectChart({ chartData, fill, title }) {
             valuePoint.style.top = valueToYCoord(value) + "px";
             valuePoint.style.left = indexToXCoord(index) + "px";
             valueLabel.className = "subject-chart-label";
-            valueLabel.innerHTML = `${labels[index]}<br/><small>${value}</small>`;
+            valueLabel.innerHTML = `<b>${value}</b><br/><small>${labels[index]}</small>`;
             valueLabel.style.top = valueToYCoord(value) + "px";
             valueLabel.style.left = indexToXCoord(index) + "px";
             chartOuter.appendChild(valuePoint);
@@ -168,7 +168,7 @@ function SubjectChart({ chartData, fill, title }) {
     return (
         <div id="subject-chart-outer">
             <svg id={id}>
-                <path fill={fill}></path>
+                <path fill="rgba(0,0,0,.18)"></path>
             </svg>
             {title ? <h3 class="subject-chart-title">{title}</h3> : null}
         </div>
@@ -195,7 +195,6 @@ function SubjectPage({ subject }) {
                         <div class="col-xs-12 col-md-6 col-md-offset-1">
                             <SubjectChart
                                 chartData={subject.averagePoints}
-                                fill={subject.colorDark}
                                 title="Средний балл"
                             ></SubjectChart>
                         </div>
