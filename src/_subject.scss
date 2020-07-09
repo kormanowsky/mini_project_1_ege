@@ -35,6 +35,7 @@
     font-weight: 700;
     font-size: 1.5rem;
     padding-left: 0.5rem;
+    line-height: 1;
 }
 
 .subject-task-points {
@@ -48,7 +49,7 @@
 
 .subject-task-theme{
    font-size: 0.9rem;
-   margin-top: 0.5rem;
+   margin-top: 1rem;
 }
 
 h2.subject-rubric-title {
@@ -150,6 +151,6 @@ p.subject-website-url {
     font-size: 0.8rem;
 }
 
-#subject-tasks .row{
+#subject-tasks>.row{
     align-items: unset;
 }
