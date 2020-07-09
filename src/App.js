@@ -23,12 +23,35 @@ function Card({ id, content, className, shadow }) {
     );
 }
 
+function Footer() {
+    return (
+        <footer>
+            <p>
+                Автор сайта -{" "}
+                <a
+                    href="https://vk.com/kormanowsky/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Михаил Кормановский
+                </a>
+                .
+            </p>
+            <p>
+                Используются ReactJS, иконки IcoFont, шрифты Google Fonts и
+                сетка Flexbox Grid.
+            </p>
+        </footer>
+    );
+}
+
 function HomeSubject({ subject }) {
     return (
         <div className="block block-home-subject">
             <Card
+                className="has-lg-shadow"
                 content={
-                    <Link to={subject.url}>
+                    <Link to={subject.url} style={{ color: subject.color }}>
                         <i className={subject.icon}></i>
                         <p>{subject.name}</p>
                     </Link>
@@ -51,17 +74,7 @@ function HomePage() {
                     ))}
                 </div>
 
-                <p>
-                    Made by{" "}
-                    <a
-                        href="https://vk.com/kormanowsky/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Mikhail Kormanowsky
-                    </a>{" "}
-                    using IcoFont icons and Google Fonts.
-                </p>
+                <Footer />
             </div>
         </div>
     );
@@ -378,19 +391,7 @@ function SubjectPage({ subject }) {
                     </div>
                 </div>
             </main>
-            <footer>
-                <div class="container">
-                    Автор сайта -{" "}
-                    <a
-                        href="https://vk.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Михаил Кормановский
-                    </a>
-                    .{" "}
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 }

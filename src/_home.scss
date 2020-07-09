@@ -5,27 +5,18 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: $primary-color;
-    color: white;
 }
 
 .app-home h1 {
     font-size: 4rem;
     text-transform: uppercase;
     margin: 0;
+    color: $primary-color;
 }
 
 .app-home h4 {
     font-size: 2rem;
     margin: 0;
-}
-
-.app-home a {
-    color: $accent-color;
-}
-
-.block.block-home-subject a {
-    color: $primary-color;
 }
 
 .block.block-home-subject p {
@@ -45,8 +36,4 @@ div#home-subjects {
     margin-top: 2rem;
     display: flex;
     justify-content: space-between;
-}
-
-.block-home-subject .block-card {
-    box-shadow: 1px 1px 12px 0px rgba(0, 0, 0, 0.23);
 }
