@@ -11,8 +11,8 @@ function App() {
                     <HomePage />
                 </Route>
                 {Data.subjects.map((subject) => (
-                    <Route path={subject.url}>
-                        <SubjectPage subject={subject} key={subject.name} />
+                    <Route path={subject.url} key={subject.name}>
+                        <SubjectPage subject={subject} />
                     </Route>
                 ))}
             </Switch>

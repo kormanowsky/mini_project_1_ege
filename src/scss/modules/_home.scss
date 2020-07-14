@@ -1,9 +1,4 @@
 .app.app-home {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
     text-align: center;
 }
 
@@ -45,6 +40,13 @@ div#home-subjects {
         bottom: 0;
         left: 0;
         right: 0;
+    }
+    .app-home {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
     }
 }
 
