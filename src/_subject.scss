@@ -9,7 +9,7 @@
 }
 
 #subject-main {
-    padding: 2rem;
+    padding: 2rem 2rem 4rem;
 }
 
 #subject-main-info-card {
@@ -155,4 +155,8 @@ p.subject-website-url {
 #subject-books > .row,
 #subject-websites > .row {
     align-items: center;
+}
+
+.subject-channel-title, p.subject-website-title {
+    font-weight: bold;
 }

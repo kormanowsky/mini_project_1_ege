@@ -121,6 +121,44 @@ export default {
                 },
                 { theme: "Сочинение", number: 27, points: 24 },
             ],
+            books: [
+                {
+                    url: "https://www.labirint.ru/books/726531/?p=30217",
+                    title:
+                        "ЕГЭ-2020. Русский язык. Речь, текст, лексика и фразеология, выразительность речи (задания 22-26)",
+                    author: "А. Ю. Кузнецов и др.",
+                    image:
+                        "https://img3.labirint.ru/rc/d381de0fde916faa92c269af207bdd2a/220x340/books73/726531/cover.jpg?1575649549",
+                    price: 145,
+                },
+                {
+                    url: "https://www.labirint.ru/books/717804/?p=30217",
+                    author: "И. П. Цыбулько и др.",
+                    title:
+                        "ЕГЭ-2020. Русский язык. Типовые экзаменационные варианты. 10 вариантов",
+                    image:
+                        "https://img4.labirint.ru/rc/1afcc4d838aac0be8d0b5b0ddedcb83c/220x340/books72/717804/cover.jpg?1571577914",
+                    price: 244,
+                },
+            ],
+            websites: [
+                {
+                    url: "https://rus-ege.sdamgia.ru",
+                    title: "Решу ЕГЭ: русский язык",
+                    image: "https://ege.sdamgia.ru/img/headers/logo.svg",
+                },
+                {
+                    url: "http://os.fipi.ru/tasks/1/a",
+                    title: "Открытый банк заданий ФИПИ",
+                    image: "http://os.fipi.ru/content/images/icon.png",
+                },
+                {
+                    url: "https://yandex.ru/tutor/subject/?subject_id=3",
+                    title: "Яндекс.Репетитор",
+                    image:
+                        "https://yastatic.net/s3/frontend/yandex-lego/serp-header/_/3JnAXF2i.svg",
+                },
+            ],
         },
         {
             name: "Математика",
