@@ -2,6 +2,7 @@
   "name": "mini_project_1_ege",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kormanowsky.github.io/mini_project_1_ege/build/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",

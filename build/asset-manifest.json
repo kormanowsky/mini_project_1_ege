@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.bdaeef97.chunk.css",
-    "main.js": "/static/js/main.0df3c02f.chunk.js",
-    "main.js.map": "/static/js/main.0df3c02f.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.e090e440.js",
-    "runtime-main.js.map": "/static/js/runtime-main.e090e440.js.map",
-    "static/js/2.ea1842f5.chunk.js": "/static/js/2.ea1842f5.chunk.js",
-    "static/js/2.ea1842f5.chunk.js.map": "/static/js/2.ea1842f5.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.a17c98029fe5e4e751aad9818ffe314f.js": "/precache-manifest.a17c98029fe5e4e751aad9818ffe314f.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.bdaeef97.chunk.css.map": "/static/css/main.bdaeef97.chunk.css.map",
-    "static/js/2.ea1842f5.chunk.js.LICENSE.txt": "/static/js/2.ea1842f5.chunk.js.LICENSE.txt",
-    "static/media/index.scss": "/static/media/icofont.f6ab04ae.woff"
+    "main.css": "/mini_project_1_ege/build/static/css/main.7e71e685.chunk.css",
+    "main.js": "/mini_project_1_ege/build/static/js/main.e070f964.chunk.js",
+    "main.js.map": "/mini_project_1_ege/build/static/js/main.e070f964.chunk.js.map",
+    "runtime-main.js": "/mini_project_1_ege/build/static/js/runtime-main.c3429e68.js",
+    "runtime-main.js.map": "/mini_project_1_ege/build/static/js/runtime-main.c3429e68.js.map",
+    "static/js/2.ea1842f5.chunk.js": "/mini_project_1_ege/build/static/js/2.ea1842f5.chunk.js",
+    "static/js/2.ea1842f5.chunk.js.map": "/mini_project_1_ege/build/static/js/2.ea1842f5.chunk.js.map",
+    "index.html": "/mini_project_1_ege/build/index.html",
+    "precache-manifest.51748daa09889251b83bc04b378d7a3c.js": "/mini_project_1_ege/build/precache-manifest.51748daa09889251b83bc04b378d7a3c.js",
+    "service-worker.js": "/mini_project_1_ege/build/service-worker.js",
+    "static/css/main.7e71e685.chunk.css.map": "/mini_project_1_ege/build/static/css/main.7e71e685.chunk.css.map",
+    "static/js/2.ea1842f5.chunk.js.LICENSE.txt": "/mini_project_1_ege/build/static/js/2.ea1842f5.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/mini_project_1_ege/build/static/media/icofont.f6ab04ae.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.e090e440.js",
+    "static/js/runtime-main.c3429e68.js",
     "static/js/2.ea1842f5.chunk.js",
-    "static/css/main.bdaeef97.chunk.css",
-    "static/js/main.0df3c02f.chunk.js"
+    "static/css/main.7e71e685.chunk.css",
+    "static/js/main.e070f964.chunk.js"
   ]
 }
