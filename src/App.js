@@ -152,7 +152,7 @@ function SubjectBook({ book }) {
 
 function SubjectChart({ chartData, title }) {
     const id = "subject-chart";
-    useEffect(() => {
+    const renderChart = () => {
         let chartSvg = document.getElementById(id),
             chartOuter = chartSvg.parentElement,
             { labels, values } = chartData,
@@ -173,6 +173,10 @@ function SubjectChart({ chartData, title }) {
         function indexToXCoord(index) {
             return (index / (values.length - 1)) * width;
         }
+
+        chartOuter
+            .querySelectorAll(".subject-chart-label, .subject-chart-point")
+            .forEach((node) => node.remove());
 
         let d = `M ${indexToXCoord(0)} ${valueToYCoord(
             values[0]
@@ -197,6 +201,11 @@ function SubjectChart({ chartData, title }) {
         chartSvg.setAttribute("width", width);
         chartSvg.setAttribute("height", height);
         chartSvg.querySelector("path").setAttribute("d", d);
+    };
+    useEffect(() => {
+        renderChart();
+        window.addEventListener("resize", () => renderChart());
+        window.addEventListener("orientationchange", () => renderChart());
     });
 
     return (
