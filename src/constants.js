@@ -1,7 +1,7 @@
 export default {
     projectInfo: {
         name: "Project1",
-        description: "Все о ЕГЭ",
+        description: "Полезная информация о ЕГЭ",
     },
     subjects: [
         {
