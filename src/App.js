@@ -5,7 +5,7 @@ import { SubjectPage, HomePage } from "./pages";
 
 function App() {
     return (
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
             <Switch>
                 <Route path="/" exact>
                     <HomePage />
