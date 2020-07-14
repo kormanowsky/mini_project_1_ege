@@ -20,6 +20,7 @@
     letter-spacing: 0.125rem;
     font-size: 3rem;
     margin-top: 5rem;
+    line-height: 1.1;
 }
 
 .subject-task-card.block.block-card {
@@ -155,10 +156,33 @@ p.subject-website-url {
 
 #subject-channels > .row,
 #subject-books > .row,
-#subject-websites > .row {
+#subject-websites > .row,
+.subject-channel .row,
+.subject-website .row {
     align-items: center;
 }
 
-.subject-channel-title, p.subject-website-title {
+.subject-channel-title,
+p.subject-website-title {
     font-weight: bold;
+}
+
+.subject-channel,
+.subject-website {
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 48em) {
+    h1#subject-name {
+        margin-top: 0;
+    }
+    div#subject-chart-outer {
+        margin-left: 0;
+    }
+    #subject-header {
+        padding-bottom: 8rem;
+    }
+    #subject-main {
+        padding-bottom: 0;
+    }
 }

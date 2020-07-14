@@ -157,8 +157,8 @@ function SubjectChart({ chartData, title }) {
             chartOuter = chartSvg.parentElement,
             { labels, values } = chartData,
             width = chartOuter.offsetWidth,
-            height = 200,
-            safeZonePercent = 30,
+            height = window.innerWidth >= 48 * 16 ? 200 : 100,
+            safeZonePercent = window.innerWidth >= 48 * 16 ? 30 : 45,
             minValue = Math.min(...values),
             maxValue = Math.max(...values);
 
@@ -211,7 +211,7 @@ function SubjectChart({ chartData, title }) {
 
 function SubjectChannel({ channel, colorStyle }) {
     return (
-        <div class="subject-channel col-12 col-md-6 col-lg-4">
+        <div class="subject-channel col-sm-12 col-md-6 col-lg-4">
             <a
                 href={channel.url}
                 target="_blank"
@@ -237,7 +237,7 @@ function SubjectChannel({ channel, colorStyle }) {
 
 function SubjectWebsite({ website, colorStyle }) {
     return (
-        <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="subject-website col-xs-12 col-md-6 col-lg-4">
             <a
                 href={website.url}
                 target="_blank"

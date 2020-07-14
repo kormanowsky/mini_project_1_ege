@@ -37,3 +37,43 @@ div#home-subjects {
     display: flex;
     justify-content: space-between;
 }
+
+@media (min-width: 48em) {
+    .app-home footer {
+        margin-top: 3rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+@media (max-width: 48em) {
+    .block.block-home-subject {
+        width: calc(100% - 2rem);
+        padding-top: 0;
+    }
+
+    .block.block-home-subject a {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    div#home-subjects {
+        display: block;
+    }
+
+    .block.block-home-subject p {
+        margin: 0;
+    }
+
+    .app-home h1,
+    .app-home h4 {
+        padding: 0 2rem;
+    }
+
+    .app-home h1 {
+        padding-top: 4rem;
+    }
+}
