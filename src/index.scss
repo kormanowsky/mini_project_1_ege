@@ -46,10 +46,6 @@ a {
     max-width: 100%;
 }
 
-.row {
-    align-items: center;
-}
-
 h1#project-name {
     margin: 0;
     font-size: 1.75rem;
@@ -79,6 +75,11 @@ footer a {
 
 .app:not(.app-home) {
     padding-bottom: 4rem;
+}
+
+.no-info{
+    margin: 0 0.5rem;
+    font-size: .9rem;
 }
 
 // Per-page styles

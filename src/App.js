@@ -294,7 +294,7 @@ function SubjectPage({ subject }) {
                         <div class="col-xs-12 col-md-5">
                             <Card
                                 id="subject-main-info-card"
-                                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis convallis convallis tellus id interdum velit laoreet id donec. Ut eu sem integer vitae justo eget magna. Ornare suspendisse sed nisi lacus sed viverra tellus in. Sit amet porttitor eget dolor morbi non arcu risus. Sollicitudin ac orci phasellus egestas. Massa massa ultricies mi quis hendrerit. At varius vel pharetra vel turpis. Elementum sagittis vitae et leo. A diam sollicitudin tempor id eu nisl nunc. Pretium nibh ipsum consequat nisl vel pretium lectus quam. In massa tempor nec feugiat nisl pretium fusce id velit. Consequat interdum varius sit amet mattis vulputate enim nulla aliquet. Condimentum id venenatis a condimentum vitae sapien pellentesque. Sed enim ut sem viverra aliquet eget sit amet tellus."
+                                content={subject.mainInfo}
                                 shadow="lg"
                             ></Card>
 
@@ -328,15 +328,28 @@ function SubjectPage({ subject }) {
                                     Что читать
                                 </h2>
                                 <div class="row">
-                                    {subject.books
-                                        ? subject.books
-                                              .sort(() =>
-                                                  Math.random() < 0.5 ? -1 : 1
-                                              )
-                                              .map((book) => (
-                                                  <SubjectBook book={book} />
-                                              ))
-                                        : ""}
+                                    {subject.books ? (
+                                        subject.books
+                                            .sort(() =>
+                                                Math.random() < 0.5 ? -1 : 1
+                                            )
+                                            .map((book) => (
+                                                <SubjectBook book={book} />
+                                            ))
+                                    ) : (
+                                        <p class="no-info">
+                                            Пока нет информации о хороших книгах
+                                            по этому предмету. Если Вы знаете
+                                            такие книги, напишите на почту:{" "}
+                                            <a
+                                                href="mailto:kormanowsky@gmail.com"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                kormanowsky@gmail.com
+                                            </a>
+                                        </p>
+                                    )}
                                 </div>
                             </div>
                             <div id="subject-channels">
@@ -347,20 +360,34 @@ function SubjectPage({ subject }) {
                                     Что смотреть
                                 </h2>
                                 <div class="row">
-                                    {subject.channels
-                                        ? subject.channels
-                                              .sort(() =>
-                                                  Math.random() < 0.5 ? -1 : 1
-                                              )
-                                              .map((channel) => (
-                                                  <SubjectChannel
-                                                      channel={channel}
-                                                      colorStyle={
-                                                          subjectColorStyle
-                                                      }
-                                                  />
-                                              ))
-                                        : ""}
+                                    {subject.channels ? (
+                                        subject.channels
+                                            .sort(() =>
+                                                Math.random() < 0.5 ? -1 : 1
+                                            )
+                                            .map((channel) => (
+                                                <SubjectChannel
+                                                    channel={channel}
+                                                    colorStyle={
+                                                        subjectColorStyle
+                                                    }
+                                                />
+                                            ))
+                                    ) : (
+                                        <p class="no-info">
+                                            Пока нет информации о хороших
+                                            каналах по этому предмету. Если Вы
+                                            знаете такие каналы, напишите на
+                                            почту:{" "}
+                                            <a
+                                                href="mailto:kormanowsky@gmail.com"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                kormanowsky@gmail.com
+                                            </a>
+                                        </p>
+                                    )}
                                 </div>
                             </div>
                             <div id="subject-channels">
@@ -371,20 +398,33 @@ function SubjectPage({ subject }) {
                                     Что решать
                                 </h2>
                                 <div class="row">
-                                    {subject.websites
-                                        ? subject.websites
-                                              .sort(() =>
-                                                  Math.random() < 0.5 ? -1 : 1
-                                              )
-                                              .map((website) => (
-                                                  <SubjectWebsite
-                                                      website={website}
-                                                      colorStyle={
-                                                          subjectColorStyle
-                                                      }
-                                                  />
-                                              ))
-                                        : ""}
+                                    {subject.websites ? (
+                                        subject.websites
+                                            .sort(() =>
+                                                Math.random() < 0.5 ? -1 : 1
+                                            )
+                                            .map((website) => (
+                                                <SubjectWebsite
+                                                    website={website}
+                                                    colorStyle={
+                                                        subjectColorStyle
+                                                    }
+                                                />
+                                            ))
+                                    ) : (
+                                        <p class="no-info">
+                                            Пока нет информации о хороших сайтах
+                                            по этому предмету. Если Вы знаете
+                                            такие сайты, напишите на почту:{" "}
+                                            <a
+                                                href="mailto:kormanowsky@gmail.com"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                kormanowsky@gmail.com
+                                            </a>
+                                        </p>
+                                    )}
                                 </div>
                             </div>
                         </div>

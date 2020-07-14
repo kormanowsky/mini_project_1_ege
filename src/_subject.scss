@@ -47,9 +47,9 @@
     text-align: right;
 }
 
-.subject-task-theme{
-   font-size: 0.9rem;
-   margin-top: 1rem;
+.subject-task-theme {
+    font-size: 0.9rem;
+    margin-top: 1rem;
 }
 
 h2.subject-rubric-title {
@@ -151,6 +151,8 @@ p.subject-website-url {
     font-size: 0.8rem;
 }
 
-#subject-tasks>.row{
-    align-items: unset;
+#subject-channels > .row,
+#subject-books > .row,
+#subject-websites > .row {
+    align-items: center;
 }
