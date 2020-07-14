@@ -1,13 +1,13 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Oswald:wght@300;400;700&display=swap");
 // Icons
-@import "./icofont.min.css";
+@import "../css/icofont.min.css";
 // Grid
-@import "./flexboxgrid.min.css";
+@import "../css/flexboxgrid.min.css";
 // Variables
 @import "./variables";
 // Common components
-@import "./card";
+@import "./modules/card";
 body {
     margin: 0;
     font-family: "Open Sans", sans-serif;
@@ -73,5 +73,5 @@ footer a {
 }
 
 // Per-page styles
-@import "./home";
-@import "./subject";
+@import "./modules/home";
+@import "./modules/subject";
