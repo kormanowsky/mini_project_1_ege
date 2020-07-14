@@ -38,8 +38,10 @@ function Footer() {
                 .
             </p>
             <p>
-                Используются ReactJS, иконки IcoFont, шрифты Google Fonts и
-                сетка Flexbox Grid.
+                Используются ReactJS, иконки IcoFont, шрифты Google Fonts, сетка
+                Flexbox Grid,
+                <br />
+                материалы сайтов rg.ru, sdamgia.ru, labirint.ru и личный опыт.
             </p>
         </footer>
     );
