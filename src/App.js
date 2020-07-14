@@ -1,11 +1,11 @@
 import React from "react";
 import Data from "./data";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { SubjectPage, HomePage } from "./pages";
 
 function App() {
     return (
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router>
             <Switch>
                 <Route path="/" exact>
                     <HomePage />
